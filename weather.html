@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="weather.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container" id="weather-container">
+        <div class="search-bar">
+            <input type="text" id="city-input" placeholder="Search for city...">
+            <button id="button">Search</button>
+        </div>
+        <div class="current-weather" id="current-weather">
+            <h2 id="city-name">Brooklyn, New York, USA</h2>
+            <p id="date-time">Friday, January 4</p>
+            <h1 id="temperature">16°C</h1>
+            <img id="weatherIcon" src="#" alt="Current Weather Icon">
+            <p id="weather-condition">Storm with Rain</p>
+            <p><span>Wind:</span> <span id="wind">2.4 km/h</span></p>
+            <p><span>Humidity:</span> <span id="humidity">70%</span></p>
+        </div>
+
+        <div id="weekly-forecast">
+            
+        </div>
+
+        <!-- Hourly Forecast Graph -->
+        <div class="hourlyForecast">
+            <h3>Hourly Forecast</h3>
+            <canvas id="hourlyGraph"></canvas>
+        </div>
+
+        <footer>
+            <p>Weather App by Mahea Bul | Data from WeatherAPI</p>
+        </footer>
+    </div>
+    <script src="weather.js"></script>
+</body>
+</html>
