@@ -7,115 +7,78 @@ body {
 }
 
 .container {
-    margin: 0 auto;
-    padding: 80px;
-    padding-top: 40px;
-    padding-bottom: 5px;
+    margin: 0;
+    padding: 40px 15px 5px;
     text-align: center;
-    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+.layout {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Search bar styling */
 .search-bar {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .search-bar input {
-    padding: 10px;
-    width: 70%;
+    padding: 12px;
     border: none;
     border-radius: 5px 0 0 5px;
+    font-size: 16px;
 }
 
 .search-bar button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 0 5px 5px 0;
     background-color: #ff9800;
     color: #fff;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
+.search-bar button:hover {
+    background-color: #e68a00;
+}
+
+/* Current weather styling */
 .current-weather {
     background: rgba(21, 21, 21, 0.44);
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .current-weather h1 {
-    margin: 0;
+    margin: 10px 0;
     font-size: 4em;
+}
+
+.current-weather h2 {
+    margin-bottom: 5px;
+    font-size: 1.8em;
+}
+
+.current-weather p {
+    margin: 10px 0;
 }
 
 #weatherIcon {
     width: 100px;
-    
+    height: auto;
 }
-
-
-/* Dynamic Backgrounds */
-.sunny { background: linear-gradient(to bottom, #87ceeb, #f7e4bc); }
-.rainy { background: linear-gradient(to bottom, #4682b4, #a9a9a9); }
-.storm { background: linear-gradient(to bottom, #2f4f4f, #696969); }
-.cloudy { background: linear-gradient(to bottom, #b0c4de, #d3d3d3); }
-
-/* Light/Dark Theme */
-.light-theme {
-    background-color: #f0f0f0;
-    color: #333;
-}
-
-
-
-.light-theme .current-weather {
-    background: rgba(255, 255, 255, 0.7);
-}
-
-/* Hourly Forecast Graph */
-.hourlyForecast {
-    margin-bottom: 40px;
-    width: 100%;
-}
-
-.hourlyForecast h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    font-weight: 600;
-}
-
-#hourlyGraph {
-    width: 100% !important;
-    height: 500px !important;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 10px;
-    padding-bottom: 30px;
-    padding-top: 40px;
-    padding-right: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.light-theme #hourlyGraph {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    .current-weather h1 {
-        font-size: 3em;
-    }
-
-    #hourlyGraph {
-        height: 200px !important;
-    }
-}
-
-
 
 /* Weekly Forecast */
 #weekly-forecast {
@@ -138,6 +101,8 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     position: relative;
     overflow: hidden;
+    flex: 1 1 120px;
+    max-width: 150px;
 }
 
 #weekly-forecast div:hover {
@@ -162,11 +127,11 @@ body {
     opacity: 0.2;
 }
 
-/* Dynamic gradients based on condition (simplified for CSS) */
-#weekly-forecast div:nth-child(1)::before { background: linear-gradient(to bottom, #87ceeb, #f7e4bc); } /* Sunny-like */
-#weekly-forecast div:nth-child(2)::before { background: linear-gradient(to bottom, #4682b4, #a9a9a9); } /* Rainy-like */
-#weekly-forecast div:nth-child(3)::before { background: linear-gradient(to bottom, #2f4f4f, #696969); } /* Storm-like */
-#weekly-forecast div:nth-child(n+4)::before { background: linear-gradient(to bottom, #b0c4de, #d3d3d3); } /* Cloudy-like */
+/* Dynamic gradients based on condition */
+#weekly-forecast div:nth-child(1)::before { background: linear-gradient(to bottom, #87ceeb, #f7e4bc); }
+#weekly-forecast div:nth-child(2)::before { background: linear-gradient(to bottom, #4682b4, #a9a9a9); }
+#weekly-forecast div:nth-child(3)::before { background: linear-gradient(to bottom, #2f4f4f, #696969); }
+#weekly-forecast div:nth-child(n+4)::before { background: linear-gradient(to bottom, #b0c4de, #d3d3d3); }
 
 #weekly-forecast p {
     margin: 5px 0;
@@ -180,6 +145,49 @@ body {
     font-weight: bold;
     font-size: 1.2em;
     text-transform: uppercase;
+}
+
+/* Hourly Forecast Graph */
+.hourlyForecast {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.hourlyForecast h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+#hourlyGraph {
+    width: 100% !important;
+    height: 450px !important;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 40px 30px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Dynamic Backgrounds */
+.sunny { background: linear-gradient(to bottom, #87ceeb, #f7e4bc); }
+.rainy { background: linear-gradient(to bottom, #4682b4, #a9a9a9); }
+.storm { background: linear-gradient(to bottom, #2f4f4f, #696969); }
+.cloudy { background: linear-gradient(to bottom, #b0c4de, #d3d3d3); }
+
+/* Light/Dark Theme */
+.light-theme {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.light-theme .current-weather {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.light-theme #hourlyGraph {
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .light-theme #weekly-forecast div {
@@ -197,16 +205,140 @@ body {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    #weekly-forecast div {
-        min-width: 100px;
-        padding: 10px;
-    }
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
 /* Keyframe for fade-in animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+/* Mobile Phones (up to 480px) */
+@media (max-width: 480px) {
+    .layout {
+        margin: 0;
+        padding: 0 10px;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .search-bar input {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .search-bar button {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .current-weather h1 {
+        font-size: 2.5em;
+    }
+    
+    .current-weather h2 {
+        font-size: 1.4em;
+    }
+    
+    #weatherIcon {
+        width: 80px;
+    }
+    
+    #weekly-forecast {
+        gap: 10px;
+    }
+    
+    #weekly-forecast div {
+        min-width: 100px;
+        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 40px;
+        flex: 1 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+    
+    .hourlyForecast h3 {
+        font-size: 1.4em;
+    }
+    
+    #hourlyGraph {
+        height: 250px !important;
+        padding: 20px 15px 15px;
+    }
+}
+
+/* Small devices (tablets, 481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .layout {
+        margin: 0 20px;
+    }
+    
+    .current-weather h1 {
+        font-size: 3em;
+    }
+    
+    #weekly-forecast div {
+        min-width: 110px;
+        padding: 12px;
+        padding-top: 25px;
+        padding-bottom: 50px;
+        flex: 1 1 calc(33.333% - 15px);
+        max-width: calc(33.333% - 15px);
+    }
+    
+    #hourlyGraph {
+        height: 300px !important;
+    }
+}
+
+/* Medium devices (tablets, 769px to 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .layout {
+        margin: 0 40px;
+    }
+    
+    .current-weather {
+        padding: 30px;
+    }
+    
+    #weekly-forecast div {
+        flex: 1 1 calc(25% - 15px);
+        max-width: calc(25% - 15px);
+    }
+    
+    #hourlyGraph {
+        height: 350px !important;
+    }
+}
+
+/* Large devices (desktops, 993px and up) */
+@media (min-width: 993px) {
+    .layout {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    
+    .current-weather {
+        padding: 35px;
+    }
+    
+    .search-bar input {
+        max-width: 500px;
+    }
+    
+    #weekly-forecast div {
+        flex: 1 1 min-content;
+    }
 }
