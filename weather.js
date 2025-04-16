@@ -1,6 +1,8 @@
 // API Key and Base URL
 const apiKey = 'e37cc8b8daf84f63951162539251503';
-const apiUrl = 'http://api.weatherapi.com/v1/forecast.json?key=' + apiKey + '&q=';
+
+const apiUrl = 'https://api.weatherapi.com/v1/forecast.json?key=' + apiKey + '&q=';
+
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
